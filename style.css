@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: Poppins;
+}
+
+.left{
+  width: 25vw;
+  height: 100vh;
+  padding: 10px;
+}
+.right{
+  width: 75vw;
+}
+
+.m-logo{
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+
+.home ul li{
+  display:flex;
+  gap: 15px;
+  list-style-type: none;
+}
+
+.library ul li{
+  display:flex;
+  gap: 15px;
+  list-style-type: none;
+  padding: 15px;
+}
+.home, .library{
+  width: 100%;
+}
