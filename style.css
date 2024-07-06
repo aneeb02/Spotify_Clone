@@ -76,6 +76,8 @@ ul{
 .header {
   justify-content: space-between;
   padding: 20px;
+  background-color: #212020;
+  
   /* position: fixed;
   top: 0;
   left: 25vw; */
@@ -83,7 +85,6 @@ ul{
 }
 .header>*{
   padding:10px;
-
 }
 
 .hlinks {
@@ -99,12 +100,12 @@ ul{
 }
 
 button{
-  font-size: 18px;
+  font-size: 16px;
   font-family: Poppins;
   font-weight: 600;
   color:rgb(0, 0, 0);
   background-color: rgb(255, 253, 253);
-  padding: 10px;
+  padding: 12px;
   border-radius: 30px;
   border: none;
 }
@@ -114,4 +115,63 @@ button:hover{
   transition-duration: 0.5s;
   cursor: pointer;
 }
+
+.playlists{
+  padding: 10px;
+
+}
+
+.card-container{
+  display: flex;
+  gap: 30px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.card{
+  position: relative;
+}
+
+.playlists .card{
+  border-radius: 8px;
+  padding: 10px;
+
+}
+.card img{
+  border-radius: 5px;
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+}
+.card p{
+  font-weight: 300;
+}
+
+.card:hover{
+  background-color: #242424;
+  transition-duration: 0.3s;
+  transform: scale(1.1);
+
+}
+
+.play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: #1fdf64;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+.play:hover{
+  opacity:1;
+  bottom: 75px;
+}
+
 
