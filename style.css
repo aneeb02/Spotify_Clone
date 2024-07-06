@@ -1,28 +1,35 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body{
   font-family: Poppins;
+  font-size: 15px;
 }
 
 .left{
   width: 25vw;
-  height: 100vh;
   padding: 10px;
 }
+
 .right{
   width: 75vw;
+  min-height: 100vh;
 }
 
 .m-logo{
   filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
 }
-
+ul{
+  list-style-type: none;
+}
 .home ul li{
   display:flex;
   gap: 15px;
   list-style-type: none;
+  font-weight: bold;
+  padding:8px 8px;
 }
 
 .library ul li{
@@ -34,3 +41,77 @@ body{
 .home, .library{
   width: 100%;
 }
+.library{
+  min-height: 75vh;
+  position: relative;
+
+}
+.heading{
+  display:flex;
+  gap: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+.footer{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 15px;
+  
+}
+.footer div a{
+  color: rgb(219, 218, 218);
+  text-decoration: none;
+  font-size: 12px;
+  padding: 8px;
+
+}
+.footer div a:hover{
+  color: rgb(123, 231, 7);
+  transition-duration: 0.5s;
+}
+.header {
+  justify-content: space-between;
+  padding: 20px;
+  /* position: fixed;
+  top: 0;
+  left: 25vw; */
+  
+}
+.header>*{
+  padding:10px;
+
+}
+
+.hlinks {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+}
+.auth-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+button{
+  font-size: 18px;
+  font-family: Poppins;
+  font-weight: 600;
+  color:rgb(0, 0, 0);
+  background-color: rgb(255, 253, 253);
+  padding: 10px;
+  border-radius: 30px;
+  border: none;
+}
+
+button:hover{
+  background-color: rgb(178, 178, 178);
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
