@@ -93,7 +93,7 @@ ul{
   gap: 10px;
   flex-grow: 1;
 }
-.auth-buttons {
+.buttons {
   margin-left: auto;
   display: flex;
   gap: 10px;
@@ -127,6 +127,8 @@ button:hover{
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 10px;
+  overflow-y:scroll;
+  max-height: 70vh;
 }
 
 .card{
@@ -151,7 +153,7 @@ button:hover{
 .card:hover{
   background-color: #242424;
   transition-duration: 0.3s;
-  transform: scale(1.1);
+  transform: scale(1.05);
 
 }
 
@@ -172,6 +174,12 @@ button:hover{
 .card:hover .play{
   opacity:1;
   bottom: 75px;
+}
+
+.play:hover{
+  transform: scale(1.1);
+  background-color: #27ee70;
+  cursor: pointer;
 }
 
 
