@@ -167,9 +167,9 @@ button:hover{
   bottom: 30px;
   right: 20px;
   opacity: 0;
-  transition: all 0.6s ease-out;
+  transition: all 0.3s ease-out;
 }
-.play:hover{
+.card:hover .play{
   opacity:1;
   bottom: 75px;
 }
