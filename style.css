@@ -16,11 +16,15 @@ body{
 .right{
   width: 75vw;
   min-height: 100vh;
+  position: relative;
+
 }
 
 .m-logo{
   filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+  width: 150px;
 }
+
 ul{
   list-style-type: none;
 }
@@ -182,4 +186,77 @@ button:hover{
   cursor: pointer;
 }
 
+.playbar{
+  position: fixed;
+  bottom: 10px;
+  background-color: #d9dad7;
+  width: 70vw;
+  padding: 20px;
+  border-radius: 8px;
+  display:flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
 
+.playbar img{
+  cursor: pointer;
+}
+
+.songList{
+  height: 400px;
+  font-size: 13px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+.songList ul{
+  padding: 5px;
+}  
+
+
+.songList ul li{
+  list-style-type: decimal;
+  display:flex;
+  gap:15px;
+  padding: 10px;
+  cursor:pointer;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin: 3px;
+}
+
+.songList ul li:hover{
+ color: #27ee70; 
+ transition: 0.5s;
+}
+
+.seekbar{
+  width: 90%;
+  height: 2px;
+  border: 2px solid red;
+  position: absolute;
+  bottom: 10px;
+  border-radius: 10px;
+  cursor:pointer;
+  
+}
+
+.circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 13px;
+  background-color: black;
+  position: relative;
+  bottom: 5px;
+  left: -4px;
+}
+
+.detailBar{
+  display:flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.songInfo, .songTime{
+  color:black;
+}

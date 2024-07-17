@@ -29,6 +29,10 @@
   padding: 10px;
 }
 
+.bold{
+  font-weight: bold;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }
