@@ -11,7 +11,10 @@
   </head>
   <body>
     <div class="container flex justify-center align-center bg-black">
-      <div class="left bg-black">
+      <div class="left">
+        <div class="close">
+          <img src="close.svg" alt="" class="invert" />
+        </div>
         <div class="home p1 m1 round bg-grey">
           <div class="logo">
             <img src="logo.svg" alt="" class="m-logo" />
@@ -68,6 +71,9 @@
       <div class="right round p1 bg-grey">
         <div class="header flex align-center">
           <ul class="hlinks">
+            <div class="hamburger">
+              <img src="hamb.svg" alt="" class="invert" />
+            </div>
             <li><img src="bkw.svg" alt="" class="invert" /></li>
             <li><img src="fwd.svg" alt="" class="invert" /></li>
           </ul>
@@ -214,10 +220,18 @@
             </div>
             <div class="detailBar">
               <div class="songInfo"></div>
-              <img id="prev" src="prev.svg" alt="" />
-              <img id="playButton" src="pause.svg" alt="" />
-              <img id="next" src="forw.svg" alt="" />
-              <div class="songTime"></div>
+              <img width="35" id="prev" src="prev.svg" alt="" />
+              <img width="35" id="playButton" src="pause.svg" alt="" />
+              <img width="35" id="next" src="forw.svg" alt="" />
+              <div class="svol">
+                <div class="songTime"></div>
+                <div class="volume">
+                  <img src="volume.svg" alt="" class="invert" />
+                  <div class="range">
+                    <input type="range" name="volume">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

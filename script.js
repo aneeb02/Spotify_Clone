@@ -1,6 +1,7 @@
 console.log("Welcome");
 
 let currentSong = new Audio();
+let songs = [];
 
 async function getSongs() {
   let a = await fetch("http://127.0.0.1:3000/spotify/Spotify_Clone/songs");
@@ -8,7 +9,6 @@ async function getSongs() {
   let div = document.createElement("div");
   div.innerHTML = response;
   let as = div.getElementsByTagName("a");
-  let songs = [];
 
   for (let i = 0; i < as.length; i++) {
     const elem = as[i];
@@ -102,7 +102,36 @@ async function main() {
     currentSong.currentTime = (currentSong.duration* dur) / 100;
   })
 
+  //prev, next listeners
+  let prev = document.getElementById("prev");
+  let next = document.getElementById("next");
+  
+  prev.addEventListener("click",()=>{
+    let index = songs.indexOf(decodeURIComponent(currentSong.src));
+    //wraps around the array so that last song is played when prev pressed on first song
+    let prevIndex = (index - 1 + songs.length) % songs.length; 
+    playMusic(songs[prevIndex]);
+    playButton.src = "pause.svg";
+  });
 
+  next.addEventListener("click",()=>{
+    let index = songs.indexOf(decodeURIComponent(currentSong.src));
+    playMusic(songs[index+1]); 
+    playButton.src = "pause.svg";
+  });
+
+  //activate hamburger
+  document.querySelector(".hamburger").addEventListener("click", ()=>{
+    document.querySelector(".left").style.left = "0";
+  })
+
+  //deactivate hamburger
+  document.querySelector(".close").addEventListener("click", ()=>{
+    document.querySelector(".left").style.left = "-100%";
+  })
+
+
+  
 }
 
 main();
