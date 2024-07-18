@@ -130,8 +130,12 @@ async function main() {
     document.querySelector(".left").style.left = "-100%";
   })
 
-
+  //set volume of song
+  document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change",(e)=>{
+    currentSong.volume = parseInt(e.target.value)/100;
+  })
   
+
 }
 
 main();

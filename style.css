@@ -131,6 +131,7 @@ button:hover{
   display: flex;
   gap: 30px;
   justify-content: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   margin-top: 10px;
   overflow-y:scroll;
@@ -284,7 +285,6 @@ button:hover{
   align-items: center;
   gap: 10px;
 }
-
 @media (max-width: 1080px) {
   .left{
     position: absolute;
