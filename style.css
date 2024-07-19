@@ -140,6 +140,7 @@ button:hover{
 
 .card{
   position: relative;
+  max-width: 200px;
 }
 
 .playlists .card{
@@ -155,6 +156,7 @@ button:hover{
 }
 .card p{
   font-weight: 300;
+  text-wrap: wrap;
 }
 
 .card:hover{
