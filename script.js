@@ -3,19 +3,42 @@ console.log("Welcome");
 let currentSong = new Audio();
 let songs = [];
 
-async function getSongs() {
-  let a = await fetch("http://127.0.0.1:3000/spotify/Spotify_Clone/songs");
+async function getSongs(folder) {
+  let a = await fetch(`http://127.0.0.1:3000/spotify/Spotify_Clone/${folder}/`);
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
   let as = div.getElementsByTagName("a");
 
+  songs = [];
   for (let i = 0; i < as.length; i++) {
     const elem = as[i];
     if (elem.href.endsWith(".mp3")) {
       songs.push(decodeURIComponent(elem.href));
     }
   }
+  let songUL = document.querySelector(".songList ul");
+  songUL.innerHTML = '';
+  for (const song of songs) {
+    songUL.innerHTML += `<li>
+                <img src="musik.svg" alt="" class="invert" />
+                <div class="info">
+                  <div class="bold">${song.split("/").pop().replaceAll("%20", " ")}</div>
+                  <div>Artist</div>
+                </div>
+              </li>`;
+  }
+  
+  // Event listener to play each track when clicked
+  Array.from(document.querySelectorAll(".songList li")).forEach((e) => {
+    e.addEventListener("click", () => {
+      let music = e.querySelector(".info .bold").innerHTML.trim();
+      let track = songs.find(s => s.includes(music));
+      playMusic(track);
+      document.getElementById("play").src = "play.svg"; // Change play button to pause when a song is clicked
+    });
+  });
+
   return songs;
 }
 
@@ -45,33 +68,24 @@ const playMusic = (track, paused=false) => {
   document.querySelector(".songTime").innerHTML = "00:00";
 };
 
-
+// const showSongs = ()=>{
+//   for (const song of songs) {
+//     songUL.innerHTML += `<li>
+//                 <img src="musik.svg" alt="" class="invert" />
+//                 <div class="info">
+//                   <div class="bold">${song.split("/").pop().replaceAll("%20", " ")}</div>
+//                   <div>Artist</div>
+//                 </div>
+//               </li>`;
+//   }
+// }
 
 async function main() {
-  let songs = await getSongs();
-  playMusic(songs[0], true);
+  //songs = await getSongs("X&Y");
+  // playMusic(songs[0], true);
   console.log(songs);
-  let songUL = document.querySelector(".songList ul");
-
-  for (const song of songs) {
-    songUL.innerHTML += `<li>
-                <img src="musik.svg" alt="" class="invert" />
-                <div class="info">
-                  <div class="bold">${song.split("/").pop().replaceAll("%20", " ")}</div>
-                  <div>Artist</div>
-                </div>
-              </li>`;
-  }
-
-  // Event listener to play each track when clicked
-  Array.from(document.querySelectorAll(".songList li")).forEach((e) => {
-    e.addEventListener("click", () => {
-      let music = e.querySelector(".info .bold").innerHTML.trim();
-      let track = songs.find(s => s.includes(music));
-      playMusic(track);
-      document.getElementById("play").src = "pause.svg"; // Change play button to pause when a song is clicked
-    });
-  });
+  //show songs  
+  
 
   //event listener to play and pause each song
   let playButton = document.getElementById("playButton");
@@ -134,7 +148,28 @@ async function main() {
   document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change",(e)=>{
     currentSong.volume = parseInt(e.target.value)/100;
   })
+
+  //load playlist upon clicking a card
+  // Array.from(document.getElementsByClassName("card")[0].addEventListener("click", (e)=>{
+  //   console.log(e);
+   
+  // }))
+
+  Array.from(document.getElementsByClassName("card")).forEach(e=>{
+    console.log(e);
+    e.addEventListener("click",async (item)=>{
+      //console.log(e.innerHTML);
+      console.log(item.currentTarget.dataset);
+      let album = item.currentTarget.dataset.folder;
+      songs = await getSongs(`${album}`)
+      //playMusic(songs[0], true);
+      console.log(songs)
+      //console.log(pName);
+    })
+
+  })
   
+
 
 }
 

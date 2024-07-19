@@ -159,8 +159,9 @@ button:hover{
 
 .card:hover{
   background-color: #242424;
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
   transform: scale(1.05);
+  cursor:pointer;
 
 }
 
