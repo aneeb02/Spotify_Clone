@@ -21,7 +21,7 @@ async function getSongs(folder) {
   songUL.innerHTML = '';
   for (const song of songs) {
     songUL.innerHTML += `<li>
-                <img src="musik.svg" alt="" class="invert" />
+                <img src="icons/musik.svg" alt="" class="invert" />
                 <div class="info">
                   <div class="bold">${song.split("/").pop().replaceAll("%20", " ")}</div>
                   <div>Artist</div>
@@ -35,7 +35,7 @@ async function getSongs(folder) {
       let music = e.querySelector(".info .bold").innerHTML.trim();
       let track = songs.find(s => s.includes(music));
       playMusic(track);
-      document.getElementById("play").src = "pause.svg"; // Change play button to pause when a song is clicked
+      document.getElementById("play").src = "icons/pause.svg"; // Change play button to pause when a song is clicked
     });
   });
 
@@ -148,12 +148,12 @@ async function main() {
   playButton.addEventListener("click",()=>{
 
     if(currentSong.paused){
-      playButton.src = "pause.svg";
+      playButton.src = "icons/pause.svg";
       currentSong.play();
     }
     else{
       currentSong.pause();
-      playButton.src = "play.svg";  
+      playButton.src = "icons/play.svg";  
     }
   })
 
@@ -181,13 +181,13 @@ async function main() {
     //wraps around the array so that last song is played when prev pressed on first song
     let prevIndex = (index - 1 + songs.length) % songs.length; 
     playMusic(songs[prevIndex]);
-    playButton.src = "pause.svg";
+    playButton.src = "icons/pause.svg";
   });
 
   next.addEventListener("click",()=>{
     let index = songs.indexOf(decodeURIComponent(currentSong.src));
     playMusic(songs[index+1]); 
-    playButton.src = "pause.svg";
+    playButton.src = "icons/pause.svg";
   });
 
   //activate hamburger
@@ -207,12 +207,12 @@ async function main() {
   
   document.querySelector(".volume img").addEventListener("click",e=>{
     if(e.target.src.includes("volume.svg")){
-      e.target.src = e.target.src.replace("volume.svg", "mute.svg");
+      e.target.src = e.target.src.replace("icons/volume.svg", "icons/mute.svg");
       currentSong.volume = 0;
       document.querySelector(".range").getElementsByTagName("input")[0].value = 0;
     }
     else{
-      e.target.src = e.target.src.replace("mute.svg", "volume.svg");
+      e.target.src = e.target.src.replace("icons/mute.svg", "icons/volume.svg");
       currentSong.volume = .30;
       document.querySelector(".range").getElementsByTagName("input")[0].value = 30;
     }
